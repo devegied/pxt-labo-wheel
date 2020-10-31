@@ -10,7 +10,7 @@ namespace labowheel {
     double x = (double) sample.x;
     double y = (double) sample.y;
     double z = (double) sample.z;
-    double yaw = atan2(x, -y);
+    double yaw = atan2(x, y);
     return (int) ((360*yaw) / (2*PI));
   }
 }
