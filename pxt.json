@@ -1,0 +1,22 @@
+{
+  "name": "labo-wheel",
+  "version": "0.0.1",
+  "description": "A set of functions for using Micro:bit attached to Nintendo Labo wheel as a remote controller",
+  "license": "MIT",
+  "dependencies": {
+      "core": "*"
+  },
+  "files": [
+      "README.md",
+      "labowheel.ts",
+      "labowheel.cpp"
+  ],
+  "testFiles": [
+      "test.ts"
+  ],
+  "public": true,
+  "supportedTargets": [
+    "microbit"
+  ],
+  "preferredEditor": "tsprj"
+}
