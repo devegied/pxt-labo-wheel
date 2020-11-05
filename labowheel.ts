@@ -4,7 +4,7 @@ namespace labowheel {
   /**
    * The yaw of the device on wheel, rotation along the wheel axis, in degrees.
    */
-  //% blockId=wheel_get_rotation block="wheel rotation (°)" blockGap=8
+  //% blockId=labowheel_wheelRotation block="wheel rotation (°)" blockGap=8
   //% parts="accelerometer" advanced=false shim=labowheel::getYaw
   export function wheelRotation(): int32 {
     return 0
@@ -17,7 +17,7 @@ namespace labowheel {
    * @param centerVal joystick value at rest
    * @param maxVal joystick value at positions next to Vcc
    */
-  //% blockId=read_joy_val block="joystic value on|pin $jPin|with min at $minVal|center at $centerVal|max at $maxVal" blockGap=8
+  //% blockId=labowheel_readJoy block="joystic value on|pin $jPin|with min at $minVal|center at $centerVal|max at $maxVal" blockGap=8
   //% jPin.fieldEditor="gridpicker" jPin.fieldOptions.columns=4
   //% jPin.fieldOptions.tooltips="false" jPin.fieldOptions.width="250"
   //% minVal.min=0 minVal.max=1023 minVal.defl=0
