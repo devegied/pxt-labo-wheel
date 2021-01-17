@@ -50,24 +50,24 @@ namespace labowheel {
 	//% left.fieldEditor="gridpicker" left.defl=DigitalPin.P11
 	//% right.fieldEditor="gridpicker" right.defl=DigitalPin.P9
 	//% select.fieldEditor="gridpicker" select.defl=DigitalPin.P7
-	//% menu.fieldEditor="gridpicker" menu.defl=DigitalPin.P10
+	//% menu.fieldEditor="gridpicker" menu.defl=DigitalPin.P6
   //% inlineInputMode=inline
   export function readDButtons (joyZ: DigitalPin,up: DigitalPin,down: DigitalPin,left: DigitalPin,right: DigitalPin,select: DigitalPin,menu: DigitalPin):number {
 		let rv: number = 0
     if(pins.digitalReadPin(joyZ)==0)
-			rv|=0x1
+			rv|=0B00000001
     if(pins.digitalReadPin(up)==0)
-			rv|=0x2
+			rv|=0B00000010
     if(pins.digitalReadPin(down)==0)
-			rv|=0x4
+			rv|=0B00000100
     if(pins.digitalReadPin(left)==0)
-			rv|=0x8
+			rv|=0B00001000
     if(pins.digitalReadPin(right)==0)
-			rv|=0x16
+			rv|=0B00010000
     if(pins.digitalReadPin(select)==0)
-			rv|=0x32
+			rv|=0B00100000
     if(pins.digitalReadPin(menu)==0)
-			rv|=0x64
+			rv|=0B01000000
     return rv
   }
 }
