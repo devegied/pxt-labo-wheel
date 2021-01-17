@@ -53,7 +53,7 @@ namespace labowheel {
 	//% menu.fieldEditor="gridpicker" menu.defl=DigitalPin.P10
   //% inlineInputMode=inline
   export function readDButtons (joyZ: DigitalPin,up: DigitalPin,down: DigitalPin,left: DigitalPin,right: DigitalPin,select: DigitalPin,menu: DigitalPin):number {
-		rv: uint8 = 0
+		let rv: number = 0
     if(pins.digitalReadPin(joyZ)==0)
 			rv|=0x1
     if(pins.digitalReadPin(up)==0)
