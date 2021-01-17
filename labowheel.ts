@@ -33,4 +33,41 @@ namespace labowheel {
     }
     return 0
   }
+  /**
+   * Read digital buttons values and pack it as integer bits
+   * @param joyZ pin to read value from, eg: DigitalPin.P5
+   * @param up pin to read value from, eg: DigitalPin.P10
+   * @param down pin to read value from, eg: DigitalPin.P8
+   * @param left pin to read value from, eg: DigitalPin.P11
+   * @param right pin to read value from, eg: DigitalPin.P9
+   * @param select pin to read value from, eg: DigitalPin.P7
+	 * @param menu pin to read value from, eg: DigitalPin.P6
+   */
+  //% blockId=labowheel_readDButtons block="pack digital buttons on pins $joyZ $up $down $left $right $select $menu" blockGap=8
+  //% joyZ.fieldEditor="gridpicker" joyZ.defl=DigitalPin.P5
+	//% up.fieldEditor="gridpicker" up.defl=DigitalPin.P10
+	//% down.fieldEditor="gridpicker" down.defl=DigitalPin.P8
+	//% left.fieldEditor="gridpicker" left.defl=DigitalPin.P11
+	//% right.fieldEditor="gridpicker" right.defl=DigitalPin.P9
+	//% select.fieldEditor="gridpicker" select.defl=DigitalPin.P7
+	//% menu.fieldEditor="gridpicker" menu.defl=DigitalPin.P10
+  //% inlineInputMode=inline
+  export function readDButtons (joyZ: DigitalPin,up: DigitalPin,down: DigitalPin,left: DigitalPin,right: DigitalPin,select: DigitalPin,menu: DigitalPin):number {
+		uint8 rv = 0
+    if(pins.digitalReadPin(joyZ)==0)
+			rv|=0x1
+    if(pins.digitalReadPin(up)==0)
+			rv|=0x2
+    if(pins.digitalReadPin(down)==0)
+			rv|=0x4
+    if(pins.digitalReadPin(left)==0)
+			rv|=0x8
+    if(pins.digitalReadPin(right)==0)
+			rv|=0x16
+    if(pins.digitalReadPin(select)==0)
+			rv|=0x32
+    if(pins.digitalReadPin(menu)==0)
+			rv|=0x64
+    return rv
+  }
 }
