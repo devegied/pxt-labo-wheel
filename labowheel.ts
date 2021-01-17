@@ -18,8 +18,7 @@ namespace labowheel {
    * @param maxVal joystick value at positions next to Vcc
    */
   //% blockId=labowheel_readJoy block="joystic value on|pin $jPin|with min at $minVal|center at $centerVal|max at $maxVal" blockGap=8
-  //% jPin.fieldEditor="gridpicker" jPin.fieldOptions.columns=4
-  //% jPin.fieldOptions.tooltips="false" jPin.fieldOptions.width="250"
+  //% jPin.fieldEditor="gridpicker"
   //% minVal.min=0 minVal.max=1023 minVal.defl=0
   //% centerVal.min=0 centerVal.max=1023 centerVal.defl=512
   //% maxVal.min=0 maxVal.max=1023 maxVal.defl=1023
@@ -27,9 +26,9 @@ namespace labowheel {
   export function readJoy (jPin: AnalogPin, minVal: number, centerVal: number, maxVal: number):number {
     const n = pins.analogReadPin(jPin)
     if(n < centerVal - 10){
-        return (centerVal - n)/(centerVal-minVal)*-255
+        return Math.max((centerVal - n)/(centerVal-minVal)*-255,-255)
     }else if(n > centerVal + 10){
-        return (n-centerVal)/(maxVal-centerVal)*255
+        return Math.min((n-centerVal)/(maxVal-centerVal)*255,255)
     }
     return 0
   }
